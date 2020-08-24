@@ -46,6 +46,7 @@ The discriminator is trained to solve a binary classification problem: to separa
 A loss function is implemented to train the discriminator. The dicriminator uses the `binary_cross_entropy` loss,  `real_label` as targets for real samples and `fake_label` as targets for generated samples.
 
 **Evaluate generated samples**
+
 <img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/dcgan_score.PNG" align="centre">
 
 ## Wasserstein GAN with gradient penalty (WGAN-GP)
@@ -54,7 +55,7 @@ WGAN-GP architecture includes 2 main components: Generator and Critic
 
 The WGAN value function is constructed as
 
-<img src="https://render.githubusercontent.com/render/math?math=\min_G \max_{D \in \mathcal{D}} E_{x∼P_r}[D(x)] − E_{\tilde x∼P_g}[D(\tilde x)]">
+<img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/wgan.PNG" align="centre">
 
 where
 * the dicriminator <img src="https://render.githubusercontent.com/render/math?math=D">**** (called critic in WGAN) is constrained to be from the set <img src="https://render.githubusercontent.com/render/math?math=\mathcal{D}"> of 1-Lipschitz functions
@@ -68,6 +69,7 @@ and
 <img src="https://render.githubusercontent.com/render/math?math=\tilde x = G(z)">
 
 **Generator**
+
 The same architecture with DCGAN's generator
 
 **Loss for training the generator**
@@ -85,11 +87,11 @@ In WGAN-GP, the discriminator is called a critic because it is not trained to cl
 
 Recall the value function of WGAN:
 
-<img src="https://render.githubusercontent.com/render/math?math=\min_G \max_{D \in \mathcal{D}} E_{x∼P_r}[D(x)] − E_{\tilde x∼P_g}[D(\tilde x)]">
+<img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/wgan_critic1.PNG" align="centre">
 
 To tune the critic, the following function needs to be minimized assuming no constraints on <img src="https://render.githubusercontent.com/render/math?math=D">
 
-<img src="https://render.githubusercontent.com/render/math?math=\min_{D \in \mathcal{D}} - E_{x∼P_r}[D(x)] + E_{\tilde x∼P_g}[D(\tilde x)]">
+<img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/wgan_critic2.PNG" align="centre">
 
 
 
@@ -97,9 +99,10 @@ To tune the critic, the following function needs to be minimized assuming no con
 
 Without constraints on <img src="https://render.githubusercontent.com/render/math?math=D">, the WGAN value function can be made infinitely large. WGAN constrains the derivative of <img src="https://render.githubusercontent.com/render/math?math=D"> using a gradient penalty. The penalty is computed at random points between real images and generated ones using the following procedure:
 * Given a real image **x** and a fake image <img src="https://render.githubusercontent.com/render/math?math=\tilde x">, draw a random number <img src="https://render.githubusercontent.com/render/math?math=\epsilon \sim U[0,1]">
-* <img src="https://render.githubusercontent.com/render/math?math=\hat{x} \leftarrow \epsilon x + (1−\epsilon) \tilde x">
-* Compute the gradient penalty <img src="https://render.githubusercontent.com/render/math?math=(‖\nabla_{\hat{x}} D(\hat{x})‖_2−1)^2">
+* <img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/gradient_penalty2.PNG" align="centre">
+* Compute the gradient penalty <img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/gradient_penalty.PNG" align="centre">
 where <img src="https://render.githubusercontent.com/render/math?math=\nabla_{\hat{x}} D(\hat{x})"> is the gradient of <img src="https://render.githubusercontent.com/render/math?math=D"> computed at <img src="https://render.githubusercontent.com/render/math?math=\hat{x}">.
 
 **Evaluate generated samples**
+
 <img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/wgan_score.PNG" align="centre">
