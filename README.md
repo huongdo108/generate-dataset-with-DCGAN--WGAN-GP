@@ -1,5 +1,5 @@
 # Generate dataset with Generative adversarial networks (GANs): Deep Convolutional GAN (DCGAN) and Wasserstein GAN with gradient penalty (WGAN-GP)
-<img src="https://render.githubusercontent.com/render/math?math=\sigma_n">
+
 ## Overview
 The goal of this repository is to get familiar with generative adversarial networks and specifically DCGAN and WGAN-GP. GANs are models from which we can draw samples that will have a distribution similar to the distribution of the training data.
 
