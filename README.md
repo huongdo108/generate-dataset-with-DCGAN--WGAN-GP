@@ -103,6 +103,12 @@ Without constraints on <img src="https://render.githubusercontent.com/render/mat
 * Compute the gradient penalty <img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/gradient_penalty.PNG" align="centre">
 where <img src="https://render.githubusercontent.com/render/math?math=\nabla_{\hat{x}} D(\hat{x})"> is the gradient of <img src="https://render.githubusercontent.com/render/math?math=D"> computed at <img src="https://render.githubusercontent.com/render/math?math=\hat{x}">.
 
+**Total loss needed to minimized**
+
+So the total loss that need to be minimized during training is:
+
+<img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/wgan_total_loss.PNG" align="centre">
+
 **Evaluate generated samples**
 
 <img src="https://github.com/huongdo108/generate-dataset-with-DCGAN--WGAN-GP/blob/master/images/wgan_score.PNG" align="centre">
