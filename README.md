@@ -1,6 +1,5 @@
 # Generate dataset with Generative adversarial networks (GANs): Deep Convolutional GAN (DCGAN) and Wasserstein GAN with gradient penalty (WGAN-GP)
 
-<img src="https://render.githubusercontent.com/render/math?math=\begin{align}z&\simN(0,I)">
 
 
 ## Overview
