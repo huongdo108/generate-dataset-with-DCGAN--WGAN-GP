@@ -11,7 +11,6 @@ import torchvision.transforms as transforms
 import torchvision.utils as utils
 
 import tools
-import tests
 
 data_dir = tools.select_data_dir()
 

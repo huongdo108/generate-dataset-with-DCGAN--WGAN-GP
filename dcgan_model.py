@@ -10,7 +10,6 @@ from torch.nn import functional as F
 from torchvision import transforms
 
 import tools
-import tests
 
 real_label = 1
 fake_label = 0

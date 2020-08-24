@@ -11,22 +11,27 @@ import torchvision.transforms as transforms
 import torchvision.utils as utils
 
 import tools
-import tests
 
 from scorer import Scorer
 
 from data import trainloader
 
-skip_training=False
+from dcgan_model import Generator, generator_loss, Discriminator, discriminator_loss
 
-batch_size = 100
-n_epochs = 20
+
 
 def main():
     """
     function to train model, plot generated samples, compute training score,
     save train model, load train model, and evaluate model
     """
+    # device = torch.device('cuda:0')
+    device = torch.device('cpu')
+
+    skip_training=False
+    batch_size = 100
+    n_epochs = 20
+
     scorer = Scorer()
     scorer.to(device)
 

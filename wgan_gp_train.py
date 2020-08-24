@@ -11,22 +11,28 @@ import torchvision.transforms as transforms
 import torchvision.utils as utils
 
 import tools
-import tests
 
 from scorer import Scorer
 
 from data import trainloader
 
+from wgan_gp_model import Generator,generator_loss, Critic, critic_loss, gradient_penalty
 
-batch_size=32
-n_epochs = 15
-lambda_n = 10
+
+
 
 def main():
     """
     function to train model, plot generated samples, compute training score,
     save train model, load train model, and evaluate model
     """
+
+    # device = torch.device('cuda:0')
+    device = torch.device('cpu')
+
+    batch_size=32
+    n_epochs = 15
+    lambda_n = 10
 
     scorer = Scorer()
     scorer.to(device)
